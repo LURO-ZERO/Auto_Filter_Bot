@@ -10,8 +10,7 @@ shortzy
 datetime
 pytz
 aiohttp
-
-
+flask
 
 # Other tools
 opencv-python-headless==4.8.1.78
@@ -35,7 +34,6 @@ pyromod
 colorama
 fuzzywuzzy
 Levenshtein==0.24.0
-
 
 # Git-based Packages
 git+https://github.com/Joelkb/cinemagoer
