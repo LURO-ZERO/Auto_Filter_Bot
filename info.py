@@ -2,27 +2,6 @@ import re
 import os
 from os import environ, getenv
 from Script import script
-from flask import Flask
-from threading import Thread
-
-# ============================
-# Render Port Fix (Keep Alive)
-# ============================
-app = Flask('')
-
-@app.route('/')
-def home():
-    return "Bot is Alive!"
-
-def run():
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
-
-def keep_alive():
-    t = Thread(target=run)
-    t.start()
-
-# Starting the web server for Render port binding
-keep_alive()
 
 # Utility functions
 id_pattern = re.compile(r'^.\d+$')
@@ -155,7 +134,7 @@ PREMIUM_USER = [int(user) if id_pattern.search(user) else user for user in envir
 ULTRA_FAST_MODE = is_enabled(environ.get('ULTRA_FAST_MODE', "False"), True)
 
 MAX_B_TN = environ.get("MAX_B_TN", "5")
-PORT = int(environ.get("PORT", "8080"))
+PORT = int(environ.get("PORT", "10000"))
 MSG_ALRT = environ.get('MSG_ALRT', 'Share & Support Us')
 DELETE_TIME = int(environ.get("DELETE_TIME", "300"))
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")
@@ -262,10 +241,4 @@ else:
 # ============================
 # Logs Configuration
 # ============================
-LOG_STR = "Current Customized Configurations are:-\n"
-LOG_STR += ("IMDB Results are enabled.\n" if IMDB else "IMDB Results are disabled.\n")
-LOG_STR += ("P_TTI_SHOW_OFF found.\n" if P_TTI_SHOW_OFF else "P_TTI_SHOW_OFF is disabled.\n")
-LOG_STR += ("BUTTON_MODE is enabled.\n" if BUTTON_MODE else "BUTTON_MODE is disabled.\n")
-LOG_STR += (f"CUSTOM_FILE_CAPTION enabled with value {CUSTOM_FILE_CAPTION}.\n" if CUSTOM_FILE_CAPTION else "Default captions used.\n")
-LOG_STR += ("Long IMDB storyline enabled." if LONG_IMDB_DESCRIPTION else "LONG_IMDB_DESCRIPTION is disabled.\n")
-LOG_STR += ("Spell Check Mode is enabled.\n" if SPELL_CHECK_REPLY else "Spell Check Mode is disabled.\n")
+LOG_STR = "Current Customized Configurations are active.\n"
