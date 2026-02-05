@@ -23,23 +23,10 @@ API_HASH = environ.get('API_HASH', '47071ddd4d2461be0a007a0f95f59fa8')
 BOT_TOKEN = environ.get('BOT_TOKEN', "6713190956:AAGAerjKcMQII9Nuozp9Q0s73RtvCQNor8g")
 
 # ============================
-# Bot Settings Configuration
-# ============================
-CACHE_TIME = int(environ.get('CACHE_TIME', 300))
-USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', True))
-INDEX_CAPTION = bool(environ.get('SAVE_CAPTION', True))
-
-PICS = (environ.get('PICS', 'https://graph.org/file/56b5deb73f3b132e2bb73.jpg https://graph.org/file/5303692652d91d52180c2.jpg https://graph.org/file/425b6f46efc7c6d64105f.jpg https://graph.org/file/876867e761c6c7a29855b.jpg')).split()
-NOR_IMG = environ.get("NOR_IMG", "https://graph.org/file/e20b5fdaf217252964202.jpg")
-MELCOW_PHOTO = environ.get("MELCOW_PHOTO", "https://graph.org/file/56b5deb73f3b132e2bb73.jpg")
-SPELL_IMG = environ.get("SPELL_IMG", "https://graph.org/file/13702ae26fb05df52667c.jpg")
-SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://graph.org/file/242b7f1b52743938d81f1.jpg'))
-FSUB_PICS = (environ.get('FSUB_PICS', 'https://graph.org/file/7478ff3eac37f4329c3d8.jpg https://graph.org/file/56b5deb73f3b132e2bb73.jpg')).split()
-
-# ============================
 # Admin, Channels & Users Configuration
 # ============================
-ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '').split()]
+# ADMINS ലിസ്റ്റിൽ നിങ്ങളുടെ ഐഡി ചേർത്തു
+ADMINS = [int(admin) if id_pattern.search(admin) else admin for admin in environ.get('ADMINS', '1209407849').split()]
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-100').split()]
 
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002117429873'))
@@ -160,21 +147,6 @@ STREAM_MODE = bool(environ.get('STREAM_MODE', True))
 PREMIUM_STREAM_MODE = bool(environ.get('PREMIUM_STREAM_MODE', False))
 
 # ============================
-# Bot Configuration
-# ============================
-AUTH_REQ_CHANNELS = [int(ch) for ch in auth_req_channels.split() if ch and id_pattern.match(ch)] 
-AUTH_CHANNELS = [int(ch) for ch in auth_channels.split() if ch and id_pattern.match(ch)]
-REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
-SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
-LANGUAGES = {"MALAYALAM":"mal","TAMIL":"tam","ENGLISH":"eng","HINDI":"hin","TELUGU":"tel","KANNADA":"kan","GUJARATI":"guj","MARATHI":"mar","PUNJABI":"pun"}
-QUALITIES = ["360P", "480P", "720P", "1080P", "1440P", "2160P", "4K"]
-
-SEASON_COUNT = 12
-SEASONS = [f"S{str(i).zfill(2)}" for i in range(1, SEASON_COUNT + 1)]
-
-BAD_WORDS = {"PrivateMovieZ", "toonworld4all", "themoviesboss", "1tamilmv", "tamilblasters", "skymovieshd", "join", "www", "tg"}
-
-# ============================
 # Server & Web Configuration
 # ============================
 NO_PORT = bool(environ.get('NO_PORT', False))
@@ -200,11 +172,6 @@ else:
     URL = "http://{}/".format(FQDN)
 
 # ============================
-# Reactions Configuration
-# ============================
-REACTIONS = ["🤝", "😇", "🤗", "😍", "👍", "🎅", "😐", "🥰", "🤩", "😱", "🤣", "😘", "👏", "😛", "😈", "🎉", "⚡️", "🫡", "🤓", "😎", "🏆", "🔥", "🤭", "🌚", "🆒", "👻", "😁"]
-
-# ============================
 # Commands Bot
 # ============================
 Bot_cmds = {
@@ -215,28 +182,8 @@ Bot_cmds = {
     "id": "Get Telegram ID",
     "info": "Get User Info",
     "del_msg": "Remove File Name Collection Notification",
-    "movie_update": "Toggle Movie Updates",
-    "pm_search": "Toggle PM Search",
-    "trendlist": "Get Top Trending Search List",
-    "broadcast": "Broadcast Message to All Users",
-    "grp_broadcast": "Broadcast to Connected Groups",
-    "send": "Send Message to Particular User",
-    "add_premium": "Add User to Premium",
-    "remove_premium": "Remove User from Premium",
-    "premium_users": "List Premium Users",
-    "restart": "Restart the Bot",
-    "group_cmd": "Group Command List",
-    "admin_cmd": "Admin Commands List",
-    "reset_group": "Reset Group Settings",
-    "trial_reset": "Reset User Trial"
+    "restart": "Restart Bot"
 }
-
-if MULTIPLE_DB == False:
-    DATABASE_URI = DATABASE_URI
-    DATABASE_URI2 = DATABASE_URI
-else:
-    DATABASE_URI = DATABASE_URI
-    DATABASE_URI2 = DATABASE_URI2
 
 # ============================
 # Logs Configuration
